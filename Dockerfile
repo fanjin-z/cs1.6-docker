@@ -25,6 +25,9 @@ RUN ./steamcmd.sh \
 
 EXPOSE 27015
 WORKDIR /root/hlds
-ADD cfg/* .
+ADD cfg/server.cfg .
+ADD cfg/listip.cfg .
+ADD cfg/banned.cfg .
+
 RUN apt-get remove -y curl && apt-get clean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 #CMD ./hlds_run -game cstrike +maxplayers 32 +map de_dust2 +hostname "Counter-Strike Dedicated Server"
