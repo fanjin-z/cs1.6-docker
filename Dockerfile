@@ -24,7 +24,7 @@ RUN ./steamcmd.sh \
 	; exit 0
 
 EXPOSE 27015
-ADD ADD cfg/* hlds/
+ADD cfg/* hlds/
 
 RUN apt-get remove -y wget && apt-get clean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 #CMD hlds/hlds_run -game cstrike +maxplayers 32 +map de_dust2 +hostname "Counter-Strike Dedicated Server"
