@@ -23,7 +23,7 @@ Add banned users in `cfg/banned.cfg`.<br/>
 ### Example
 Run bomb-defuse mode on de_dust2 with maximum 32 players.
 ```
-./hlds_run -game cstrike +maxplayers 32 +map de_dust2 +hostname "Counter-Strike Dedicated Server"
+hlds/hlds_run -game cstrike +maxplayers 32 +map de_dust2 +hostname "Counter-Strike Dedicated Server"
 ```
 *note: first exec after setup usually fails, simply run the command again.*
 
