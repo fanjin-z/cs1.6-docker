@@ -2,8 +2,8 @@ FROM ubuntu:18.04
 LABEL maintainer="Fanjin Zeng <fjzeng@outlook.com>"
 
 WORKDIR /root
-RUN apt-get update && apt-get install -y lib32gcc1 curl
-RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
+RUN apt-get update && apt-get install -y lib32gcc1 wget
+RUN wget -qO- "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
 
 RUN ./steamcmd.sh \
 	+login anonymous \
@@ -24,10 +24,7 @@ RUN ./steamcmd.sh \
 	; exit 0
 
 EXPOSE 27015
-WORKDIR /root/hlds
-ADD cfg/server.cfg .
-ADD cfg/listip.cfg .
-ADD cfg/banned.cfg .
+ADD ADD cfg/* hlds/
 
-RUN apt-get remove -y curl && apt-get clean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
-#CMD ./hlds_run -game cstrike +maxplayers 32 +map de_dust2 +hostname "Counter-Strike Dedicated Server"
+RUN apt-get remove -y wget && apt-get clean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+#CMD hlds/hlds_run -game cstrike +maxplayers 32 +map de_dust2 +hostname "Counter-Strike Dedicated Server"
