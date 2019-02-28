@@ -27,4 +27,4 @@ hlds/hlds_run -game cstrike +maxplayers 32 +map de_dust2 +hostname "Counter-Stri
 ```
 *note: first exec after setup usually fails, simply run the command again.*
 
-<br/>**Report any problem to issue page.**<br/>
+<br/>**Report any problem to [issue](https://github.com/Fnjn/cs1.6-docker/issues) page.**<br/>
